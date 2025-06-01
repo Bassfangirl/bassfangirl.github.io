@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Viaja a Mérida - Tu Aventura Andina</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #f0f8ff;
+            color: #333;
+        }
+        header {
+            background: #0a3d62;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        nav {
+            background: #1e3799;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #0a3d62;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #1e3799;
+            padding-bottom: 5px;
+        }
+        .plans {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .plan {
+            background: white;
+            border: 2px solid #1e3799;
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1 1 250px;
+            box-shadow: 0 0 10px rgb(30 55 153 / 0.2);
+            transition: transform 0.3s ease;
+        }
+        .plan:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgb(30 55 153 / 0.4);
+        }
+        .plan h3 {
+            color: #1e3799;
+            margin-top: 0;
+        }
+        .plan ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .plan ul li {
+            margin-bottom: 10px;
+        }
+        .payment-methods {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .payment-method {
+            background: #1e3799;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            min-width: 140px;
+            text-align: center;
+        }
+        footer {
+            background: #0a3d62;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 50px;
+        }
+        @media(max-width: 600px) {
+            .plans {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        ¡Viaja a Mérida, la joya andina de Venezuela!
+    </header>
+    <nav>
+        <a href="#planes">Planes</a>
+        <a href="#pagos">Formas de Pago</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    <main>
+        <section id="intro">
+            <h2>Descubre Mérida</h2>
+            <p>Sumérgete en la belleza natural de los Andes venezolanos. Desde el majestuoso Pico Bolívar hasta el teleférico más largo y alto del mundo, Mérida te ofrece aventuras inolvidables, gastronomía típica y una cultura vibrante. ¡Reserva tu viaje hoy y vive una experiencia única!</p>
+        </section>
+
+        <section id="planes">
+            <h2>Planes de Viaje</h2>
+            <div class="plans">
+                <div class="plan">
+                    <h3>Plan Básico</h3>
+                    <ul>
+                        <li>3 noches de alojamiento en hotel 3 estrellas</li>
+                        <li>Tour guiado al teleférico</li>
+                        <li>Desayunos incluidos</li>
+                        <li>Transporte aeropuerto-hotel ida y vuelta</li>
+                    </ul>
+                    <p><strong>Precio:</strong> $150 por persona</p>
+                </div>
+                <div class="plan">
+                    <h3>Plan Aventura</h3>
+                    <ul>
+                        <li>5 noches en hotel 4 estrellas</li>
+                        <li>Tour al Pico Bolívar con guía</li>
+                        <li>Visita a la Laguna de Mucubají</li>
+                        <li>Desayunos y cenas incluidas</li>
+                        <li>Transporte privado</li>
+                    </ul>
+                    <p><strong>Precio:</strong> $350 por persona</p>
+                </div>
+                <div class="plan">
+                    <h3>Plan Familiar</h3>
+                    <ul>
+                        <li>6 noches en apartamento turístico</li>
+                        <li>Actividades para niños</li>
+                        <li>Excursión a la ciudad y parques</li>
+                        <li>Desayunos y almuerzos incluidos</li>
+                        <li>Transporte privado y seguro de viaje</li>
+                    </ul>
+                    <p><strong>Precio:</strong> $500 por familia (4 personas)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pagos">
+            <h2>Formas de Pago</h2>
+            <div class="payment-methods">
+                <div class="payment-method">Tarjeta de Crédito/Débito</div>
+                <div class="payment-method">Transferencia Bancaria</div>
+                <div class="payment-method">Pago en Efectivo</div>
+                <div class="payment-method">Pago con PagoMovil</div>
+            </div>
+            <p style="text-align:center; margin-top: 20px;">Aceptamos pagos seguros y rápidos para que puedas reservar con confianza.</p>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Para reservar o recibir más información, escríbenos a <a href="mailto:info@viajamerida.com">info@viajamerida.com</a> o llama al +58 412 1234567.</p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Viaja Mérida. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
