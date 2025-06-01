@@ -1,184 +1,468 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Viaja a Mérida - Tu Aventura Andina</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background: #f0f8ff;
-            color: #333;
-        }
-        header {
-            background: #0a3d62;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        nav {
-            background: #1e3799;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 15px 0;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        section {
-            margin-bottom: 40px;
-        }
-        h2 {
-            color: #0a3d62;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #1e3799;
-            padding-bottom: 5px;
-        }
-        .plans {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .plan {
-            background: white;
-            border: 2px solid #1e3799;
-            border-radius: 10px;
-            padding: 20px;
-            flex: 1 1 250px;
-            box-shadow: 0 0 10px rgb(30 55 153 / 0.2);
-            transition: transform 0.3s ease;
-        }
-        .plan:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgb(30 55 153 / 0.4);
-        }
-        .plan h3 {
-            color: #1e3799;
-            margin-top: 0;
-        }
-        .plan ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .plan ul li {
-            margin-bottom: 10px;
-        }
-        .payment-methods {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .payment-method {
-            background: #1e3799;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            min-width: 140px;
-            text-align: center;
-        }
-        footer {
-            background: #0a3d62;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 50px;
-        }
-        @media(max-width: 600px) {
-            .plans {
-                flex-direction: column;
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Viaja a Mérida - Aventura Andina</title>
+
+<!-- Font Awesome para iconos -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<style>
+  /* Reset básico */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #9face6);
+    color: #222;
+    line-height: 1.6;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 45, 80, 0.95);
+    color: #f0f4f8;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  nav a {
+    color: #f0f4f8;
+    margin-left: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover,
+  nav a:focus {
+    color: #ffbf00;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ffbf00;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+  }
+
+  nav a:hover::after,
+  nav a:focus::after {
+    width: 100%;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 110px auto 60px;
+    padding: 0 20px;
+  }
+
+  section {
+    margin-bottom: 60px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  section:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  h2 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: #0f2d50;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #ffbf00;
+    padding-bottom: 10px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p.intro-text {
+    font-size: 1.2rem;
+    max-width: 850px;
+    margin: 15px auto 0;
+    text-align: center;
+    color: #444;
+  }
+
+  /* Planes estilo cards */
+  .plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .plan-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgb(255 191 0 / 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgb(255 191 0 / 0.45);
+  }
+
+  .plan-card h3 {
+    color: #0f2d50;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+
+  .plan-card ul {
+    list-style: none;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .plan-card ul li {
+    margin-bottom: 12px;
+    font-size: 1rem;
+    position: relative;
+    padding-left: 25px;
+    color: #333;
+  }
+
+  .plan-card ul li::before {
+    content: '\f058'; /* Font Awesome check */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #ffbf00;
+  }
+
+  .price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f2d50;
+    text-align: right;
+  }
+
+  /* Formulario de reserva */
+  form {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #0f2d50;
+  }
+
+  form input,
+  form select,
+  form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+
+  form input:focus,
+  form select:focus,
+  form textarea:focus {
+    border-color: #ffbf00;
+    outline: none;
+  }
+
+  form button {
+    background: #ffbf00;
+    color: #0f2d50;
+    font-weight: 700;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.3s ease;
+    width: 100%;
+  }
+
+  form button:hover {
+    background: #e6ac00;
+  }
+
+  /* Formulario validación simple */
+  .error {
+    color: #d63333;
+    font-size: 0.9rem;
+    margin-top: -15px;
+    margin-bottom: 15px;
+  }
+
+  /* Formas de pago */
+  .payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .payment-card {
+    background: #0f2d50;
+    color: #ffbf00;
+    padding: 20px 35px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 6px 20px rgb(255 191 0 / 0.3);
+    transition: background 0.3s ease;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .payment-card:hover {
+    background: #e6ac00;
+    color: #0f2d50;
+  }
+
+  /* Íconos pagos */
+  .payment-card i {
+    font-size: 1.8rem;
+  }
+
+  /* Footer */
+  footer {
+    background: #0f2d50;
+    color: #f0f4f8;
+    text-align: center;
+    padding: 25px 15px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-top: 60px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      padding: 15px 20px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin-left: 15px;
+      font-size: 1rem;
+    }
+
+    main {
+      margin: 130px 15px 60px;
+      padding: 0 10px;
+    }
+
+    .payment-methods {
+      gap: 20px;
+    }
+  }
+</style>
 </head>
 <body>
-    <header>
-        ¡Viaja a Mérida, la joya andina de Venezuela!
-    </header>
+  <header>
+    <h1><i class="fas fa-mountain"></i> Viaja Mérida</h1>
     <nav>
-        <a href="#planes">Planes</a>
-        <a href="#pagos">Formas de Pago</a>
-        <a href="#contacto">Contacto</a>
+      <a href="#intro">Inicio</a>
+      <a href="#planes">Planes</a>
+      <a href="#pagos">Pagos</a>
+      <a href="#reserva">Reserva</a>
+      <a href="#contacto">Contacto</a>
     </nav>
-    <main>
-        <section id="intro">
-            <h2>Descubre Mérida</h2>
-            <p>Sumérgete en la belleza natural de los Andes venezolanos. Desde el majestuoso Pico Bolívar hasta el teleférico más largo y alto del mundo, Mérida te ofrece aventuras inolvidables, gastronomía típica y una cultura vibrante. ¡Reserva tu viaje hoy y vive una experiencia única!</p>
-        </section>
+  </header>
 
-        <section id="planes">
-            <h2>Planes de Viaje</h2>
-            <div class="plans">
-                <div class="plan">
-                    <h3>Plan Básico</h3>
-                    <ul>
-                        <li>3 noches de alojamiento en hotel 3 estrellas</li>
-                        <li>Tour guiado al teleférico</li>
-                        <li>Desayunos incluidos</li>
-                        <li>Transporte aeropuerto-hotel ida y vuelta</li>
-                    </ul>
-                    <p><strong>Precio:</strong> $150 por persona</p>
-                </div>
-                <div class="plan">
-                    <h3>Plan Aventura</h3>
-                    <ul>
-                        <li>5 noches en hotel 4 estrellas</li>
-                        <li>Tour al Pico Bolívar con guía</li>
-                        <li>Visita a la Laguna de Mucubají</li>
-                        <li>Desayunos y cenas incluidas</li>
-                        <li>Transporte privado</li>
-                    </ul>
-                    <p><strong>Precio:</strong> $350 por persona</p>
-                </div>
-                <div class="plan">
-                    <h3>Plan Familiar</h3>
-                    <ul>
-                        <li>6 noches en apartamento turístico</li>
-                        <li>Actividades para niños</li>
-                        <li>Excursión a la ciudad y parques</li>
-                        <li>Desayunos y almuerzos incluidos</li>
-                        <li>Transporte privado y seguro de viaje</li>
-                    </ul>
-                    <p><strong>Precio:</strong> $500 por familia (4 personas)</p>
-                </div>
-            </div>
-        </section>
+  <main>
+    <section id="intro">
+      <h2>Descubre Mérida</h2>
+      <p class="intro-text">
+        Explora la magia de Mérida, Venezuela: desde el teleférico más largo del mundo hasta la belleza natural del Parque Nacional Sierra Nevada. Vive aventuras, cultura y sabores andinos que nunca olvidarás.
+      </p>
+    </section>
 
-        <section id="pagos">
-            <h2>Formas de Pago</h2>
-            <div class="payment-methods">
-                <div class="payment-method">Tarjeta de Crédito/Débito</div>
-                <div class="payment-method">Transferencia Bancaria</div>
-                <div class="payment-method">Pago en Efectivo</div>
-                <div class="payment-method">Pago con PagoMovil</div>
-            </div>
-            <p style="text-align:center; margin-top: 20px;">Aceptamos pagos seguros y rápidos para que puedas reservar con confianza.</p>
-        </section>
+    <section id="planes">
+      <h2>Planes de Viaje</h2>
+      <div class="plans">
+        <article class="plan-card">
+          <h3><i class="fas fa-route"></i> Plan Básico</h3>
+          <ul>
+            <li>3 noches en hotel 3 estrellas</li>
+            <li>Tour guiado al teleférico</li>
+            <li>Desayunos incluidos</li>
+            <li>Transporte aeropuerto-hotel ida y vuelta</li>
+          </ul>
+          <p class="price">Desde <strong>$150</strong> por persona</p>
+        </article>
 
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>Para reservar o recibir más información, escríbenos a <a href="mailto:info@viajamerida.com">info@viajamerida.com</a> o llama al +58 412 1234567.</p>
-        </section>
-    </main>
-    <footer>
-        &copy; 2025 Viaja Mérida. Todos los derechos reservados.
-    </footer>
+        <article class="plan-card">
+          <h3><i class="fas fa-hiking"></i> Plan Aventura</h3>
+          <ul>
+            <li>5 noches en hotel 4 estrellas</li>
+            <li>Excursión al Pico Bolívar</li>
+            <li>Visita a Laguna de Mucubají</li>
+            <li>Desayunos y cenas incluidas</li>
+            <li>Transporte privado</li>
+          </ul>
+          <p class="price">Desde <strong>$350</strong> por persona</p>
+        </article>
+
+        <article class="plan-card">
+          <h3><i class="fas fa-users"></i> Plan Familiar</h3>
+          <ul>
+            <li>6 noches en apartamento turístico</li>
+            <li>Actividades para niños</li>
+            <li>Excursión a la ciudad y parques</li>
+            <li>Desayunos y almuerzos incluidos</li>
+            <li>Transporte privado y seguro de viaje</li>
+          </ul>
+          <p class="price">Desde <strong>$500</strong> por familia (4 personas)</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pagos">
+      <h2>Formas de Pago</h2>
+      <div class="payment-methods">
+        <div class="payment-card" title="Tarjeta de Crédito/Débito">
+          <i class="fas fa-credit-card"></i> Tarjeta de Crédito/Débito
+        </div>
+        <div class="payment-card" title="Transferencia Bancaria">
+          <i class="fas fa-university"></i> Transferencia Bancaria
+        </div>
+        <div class="payment-card" title="Pago en Efectivo">
+          <i class="fas fa-money-bill-wave"></i> Pago en Efectivo
+        </div>
+        <div class="payment-card" title="PagoMovil">
+          <i class="fas fa-mobile-alt"></i> PagoMovil
+        </div>
+      </div>
+      <p style="text-align:center; margin-top: 20px; font-style: italic; color:#555;">
+        Aceptamos pagos seguros y rápidos para que puedas reservar con confianza.
+      </p>
+    </section>
+
+    <section id="reserva">
+      <h2>Reserva tu Viaje</h2>
+      <form id="bookingForm" novalidate>
+        <label for="nombre">Nombre Completo *</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" />
+
+        <label for="email">Correo Electrónico *</label>
+        <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com" />
+
+        <label for="telefono">Teléfono *</label>
+        <input type="tel" id="telefono" name="telefono" required placeholder="+58 412 1234567" />
+
+        <label for="plan">Selecciona un Plan *</label>
+        <select id="plan" name="plan" required>
+          <option value="" disabled selected>-- Elige un plan --</option>
+          <option value="basico">Plan Básico - $150</option>
+          <option value="aventura">Plan Aventura - $350</option>
+          <option value="familiar">Plan Familiar - $500</option>
+        </select>
+
+        <label for="comentarios">Comentarios adicionales</label>
+        <textarea
+          id="comentarios"
+          name="comentarios"
+          rows="4"
+          placeholder="¿Alguna petición especial?"></textarea>
+
+        <button type="submit">Enviar Reserva</button>
+        <p id="formMessage" style="margin-top:15px; font-weight:bold;"></p>
+      </form>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p style="text-align:center; font-size: 1.1rem;">
+        ¿Dudas o consultas? Escríbenos a
+        <a href="mailto:info@viajamerida.com" style="color:#ffbf00; font-weight: 700;">info@viajamerida.com</a> o llama al
+        <a href="tel:+584121234567" style="color:#ffbf00; font-weight: 700;">+58 412 1234567</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Viaja Mérida. Todos los derechos reservados.
+  </footer>
+
+<script>
+  // Validación simple del formulario de reserva
+  const form = document.getElementById('bookingForm');
+  const message = document.getElementById('formMessage');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    message.textContent = '';
+    let errors = [];
+
+    const nombre = form.nombre.value.trim();
+    const email = form.email.value.trim();
+    const telefono = form.telefono.value.trim();
+    const plan = form.plan.value;
+
+    if (nombre.length < 3) errors.push('Por favor, ingresa un nombre válido.');
+    if (!email.match(/^\S+@\S+\.\S+$/)) errors.push('Correo electrónico inválido.');
+    if (!telefono.match(/^\+?\d{7,15}$/)) errors.push('Teléfono inválido.');
+    if (!plan) errors.push('Selecciona un plan.');
+
+    if (errors.length > 0) {
+      message.style.color = '#d63333';
+      message.innerHTML = errors.join('<br>');
+    } else {
+      message.style.color = '#0f2d50';
+      message.textContent = '¡Gracias por tu reserva! Nos pondremos en contacto contigo pronto.';
+      form.reset();
+    }
+  });
+</script>
 </body>
 </html>
